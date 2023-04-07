@@ -26,6 +26,24 @@ export const getUser1 = async (req, res) => {
         }
 };
 
+//Post para el Login
+export const postLogin = async (req, res) => {
+    try {
+      const { email, password } = req.body;
+  
+      const [rows] = await pool.query("SELECT * FROM user WHERE email = ? AND password = ?", [
+        email, password
+      ]);
+  
+      if (rows.length <= 0) {
+        return res.status(404).json({ message: "User not found" });
+      }
+      res.json(rows[0]);
+    } catch (error) {
+      return res.status(500).json({ message: "Something goes wrong" });
+    }
+  };
+
 
 //Método POST para crear un usuario
 export const createUser = async (req, res) => {
