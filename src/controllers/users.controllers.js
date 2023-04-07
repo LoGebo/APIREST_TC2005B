@@ -27,7 +27,6 @@ export const getUser1 = async (req, res) => {
 };
 
 
-
 //Método POST para crear un usuario
 export const createUser = async (req, res) => {
     try {
