@@ -1,8 +1,8 @@
 import { Router } from "express";
 import {getUsers, createUser, updateUser, deleteUser, getUser1, postLogin} from "../controllers/users.controllers.js";
 
-const router = Router();
 
+const router = Router();
 
 router.get("/users", getUsers)
 
@@ -15,6 +15,7 @@ router.post("/users"  , createUser)
 router.patch("/users/:iduser"  , updateUser)
 
 router.delete("/users/:iduser"  , deleteUser)
+
 
 
 export default router;
